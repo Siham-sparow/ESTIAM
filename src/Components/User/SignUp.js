@@ -1,9 +1,9 @@
 import React from 'react';
 //contain the register or signUp component
-const SignIn = () => {
+const SignUp = () => {
     return (
         <div></div>
     );
 }
 
-export default SignIn;
+export default SignUp;
