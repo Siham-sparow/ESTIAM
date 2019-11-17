@@ -1,7 +1,7 @@
 import React from 'react';
 const MessagePage = () => {
     return (
-        <div></div>
+        <div>message page</div>
     );
 }
 
