@@ -1,7 +1,12 @@
 import React from 'react';
+import  SideComponent  from "./SideComponent";
+import Content from "./Content";
 const MessagePage = () => {
     return (
-        <div>message page</div>
+        <div>
+            <SideComponent />
+            <Content />
+        </div>
     );
 }
 
