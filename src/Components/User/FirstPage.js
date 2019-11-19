@@ -6,7 +6,6 @@ import Login from './Login';
 const FirstPage = () => {
     return (
         <div> 
-            
             <SignUp/>
             <Login />
         </div>
