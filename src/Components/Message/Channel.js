@@ -2,6 +2,7 @@ import React,{useState, useContext} from 'react';
 import { api_channels } from '../../apiUrl';
 import UserContext from '../Provider/UserContext';
 import {Redirect} from 'react-router-dom';
+import MessageContext from '../Provider/MessageContext';
 //Contain the list of all channel
 //also used to create new channel
 const Channel = () => {
@@ -9,10 +10,11 @@ const Channel = () => {
     const [channels,setChannels] = useState([]);
     const [loading,setLoading]= useState(false);
     const userContext = useContext(UserContext);
-    
+    const messageContext = useContext(MessageContext);
     const handleChannelNameChange=(elt)=>{
         const value = elt.target.value;
         setChannelName(value);
+        messageContext.setChannel(value);
     }    
     
     const loadChannelList=()=>{
@@ -47,7 +49,7 @@ const Channel = () => {
             </div>
             {channelName}
             <ul>
-                {channels.map((index,value)=>{
+                {channels.map((value,index)=>{
                 return <li key={index} value={value}>#{value}</li>
                 })}    
             </ul>            

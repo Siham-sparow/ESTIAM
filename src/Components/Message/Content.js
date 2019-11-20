@@ -1,8 +1,11 @@
 import React from 'react';
+import NewMessage from './NewMessage';
 //Big container of messages list and add message component
 const Content = () => {
     return (
-        <div></div>
+        <div>Content
+            <NewMessage />
+        </div>
     );
 }
 
