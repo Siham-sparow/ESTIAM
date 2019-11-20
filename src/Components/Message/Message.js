@@ -1,8 +1,9 @@
 import React from 'react';
 //used to show one message
-const Message = () => {
+const Message = ({message}) => {
+    console.log(message);
     return (
-        <div></div>
+    <div> {message.message}</div>
     );
 }
 
