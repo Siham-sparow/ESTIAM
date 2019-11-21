@@ -2,7 +2,7 @@ import React,{Component, } from 'react';
 import { api_login } from '../../apiUrl';
 import UserContext from "../Provider/UserContext";
 import {Redirect} from 'react-router-dom';
-import { Card, Button, Image } from 'semantic-ui-react';
+import { Card, Button, Image, Input } from 'semantic-ui-react';
 //contain the loginComponent
 
 class Login extends Component {
@@ -57,29 +57,36 @@ class Login extends Component {
         const loggedIn= this.context.user.token!==undefined;
         return (
             <div>                
-                 {loggedIn?<Redirect to="/messages"/>:''}
-                
-                <h2>Log into your account</h2>
-                
+                 {loggedIn?<Redirect to="/messages"/>:''}                                                
         <Card>
             <Card.Content>        
-                <Card.Header>Create your account</Card.Header>
-                    <div>
-                    <label htmlFor="username"> Username</label>
-                    <input value={this.state.username} 
+                <Card.Header>Log into your account</Card.Header>
+                    <div>                    
+                    <Input 
+                        
+                        icon='user'
+                        iconPosition='left'
+                        placeholder="Nom d'utilisateur"
+                        value={this.state.username} 
                         onChange={this.handleChange}  
                         name="username" 
-                        type="text"></input>
+                        type="text"></Input>
                 </div>
                 <div>
-                    <label htmlFor="password"> password</label>
-                    <input value={this.state.password} 
+                   
+                    <Input 
+                        icon='key'
+                        iconPosition='left'
+                        placeholder="Mot de passe"
+                        value={this.state.password} 
                         onChange={this.handleChange} 
                         name="password" 
-                        type="password"></input>
+                        type="password"></Input>
                 </div>
                 <div>
-                    <Button onClick={this.submit}>Chat now</Button>
+                    <Button onClick={this.submit}
+                        color='linkedin'
+                        >Chat now</Button>
                 </div>
       </Card.Content>      
     </Card>
