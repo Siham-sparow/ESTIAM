@@ -1,7 +1,8 @@
 import React,{Component, } from 'react';
 import { api_login } from '../../apiUrl';
 import UserContext from "../Provider/UserContext";
-import {Redirect} from 'react-router-dom'
+import {Redirect} from 'react-router-dom';
+import { Card, Button, Image } from 'semantic-ui-react';
 //contain the loginComponent
 
 class Login extends Component {
@@ -57,9 +58,13 @@ class Login extends Component {
         return (
             <div>                
                  {loggedIn?<Redirect to="/messages"/>:''}
-                {this.context.user.token}               
+                
                 <h2>Log into your account</h2>
-                <div>
+                
+        <Card>
+            <Card.Content>        
+                <Card.Header>Create your account</Card.Header>
+                    <div>
                     <label htmlFor="username"> Username</label>
                     <input value={this.state.username} 
                         onChange={this.handleChange}  
@@ -74,8 +79,10 @@ class Login extends Component {
                         type="password"></input>
                 </div>
                 <div>
-                    <button onClick={this.submit}>Chat now</button>
+                    <Button onClick={this.submit}>Chat now</Button>
                 </div>
+      </Card.Content>      
+    </Card>
             </div>
         );
     }
