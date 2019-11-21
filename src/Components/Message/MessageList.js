@@ -20,7 +20,8 @@ const MessageList = () => {
         .then(res=>res.json())
         .then(res=>{
             console.log(res);
-            setMessages(res)
+            if(res['success']!=false)
+            messageContext.setMessages(res)
         })
         .catch(err=>{
             console.log(err);
@@ -29,11 +30,14 @@ const MessageList = () => {
 
     if(!loading)
         loadMessageList();
+    
+    console.log('context');
+    console.log(messageContext);
     return (
         <div>
-            {messages.map((message,index)=>{
+            {messageContext.messages!==undefined?messageContext.messages.map((message,index)=>{
                 return <Message key={'mes_'+index} message={message} />
-            })}
+            }):''}
         </div>
     );
 }

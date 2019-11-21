@@ -21,9 +21,12 @@ const NewMessage = () => {
                 message:message,                               
             })
         })
-        .then(res=>res.json)
+        .then(res=>res.json())
         .then(res=>{
-            console.log('success')
+            console.log('success');
+            messageContext.addMessage(res);
+            messageContext.setChannel(messageContext.channel);
+            setMessage('');
             console.log(JSON.stringify(res));
         })
         .catch(err=>{
