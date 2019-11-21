@@ -48,7 +48,6 @@ const Channel = () => {
             <div>
                 <input value={channelName} onChange={handleChannelNameChange} placeholder='New channel'/>
             </div>
-            {channelName}
             <ul>
                 {channels.map((value,index)=>{
                 return <Item key={index} value={value}/>

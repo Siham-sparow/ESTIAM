@@ -4,12 +4,21 @@ import MessageContext from '../Provider/MessageContext';
 // use to change the message list to be show
 const Item = ({value}) => {
     const messageContext= useContext(MessageContext);
+    const style={
+        active:{
+            color:'#bab'
+        }
+    }
     const changeChannel=()=>{
         messageContext.setChannel(value);
         messageContext.setMessages([]);
     }
+    const isActive=(value)=>{
+        return value===messageContext.channel
+    }
+    
     return (
-        <li value={value} onClick={changeChannel}>#{value}</li>
+        <li style={isActive()?style.active:{}} value={value} onClick={changeChannel}>#{value}</li>
     );
 }
 
