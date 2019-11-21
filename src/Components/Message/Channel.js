@@ -29,8 +29,9 @@ const Channel = () => {
         })
         .then(res=>res.json())
         .then(res=>{
-            console.log(res);
+            // console.log(res);
             setChannels(res)
+            if(res[0]!==undefined)messageContext.setChannel(res[0]);
         })
         .catch(err=>{
             console.log(err);

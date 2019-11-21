@@ -23,9 +23,14 @@ const Message = ({message}) => {
             console.log(err);
         })
     }
+    const isMyMessage=()=>{
+        // console.log(message);
+        return message.author._id===userContext.user.user_id;
+
+    }
     return (
     <div> {message.message}
-        <button onClick={deleteMessage}>delete</button>
+        {isMyMessage()?<button onClick={deleteMessage}>delete</button>:''}
     </div>
     );
 }

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 //code copied react bootstratp documentation
 //source: https://react-bootstrap.github.io/getting-started/introduction
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 

@@ -6,7 +6,7 @@ const Item = ({value}) => {
     const messageContext= useContext(MessageContext);
     const style={
         active:{
-            color:'#bab'
+            color:'#fff',
         }
     }
     const changeChannel=()=>{
@@ -14,6 +14,8 @@ const Item = ({value}) => {
         messageContext.setMessages([]);
     }
     const isActive=(value)=>{
+        console.log(value);
+        console.log(messageContext.channel);
         return value===messageContext.channel
     }
     

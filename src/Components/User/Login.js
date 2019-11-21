@@ -25,12 +25,12 @@ class Login extends Component {
         const statusCopy = Object.assign({}, this.state);
         statusCopy[inputName] = inputValue;
     
-        console.log(statusCopy);
+        // console.log(statusCopy);
         this.setState(statusCopy);
       }
 
       submit(){
-          console.log(this.context);
+        //   console.log(this.context);
         fetch(api_login,{
             method:"post",
             body:JSON.stringify(this.state),
@@ -40,10 +40,11 @@ class Login extends Component {
         })
         .then(response=>response.json())
         .then(data=>{
-            console.log(data);
+            // console.log(data);
             if(data.success){
                 this.context.setProp('username',this.state.username);
                 this.context.setProp('token',"Bearer "+data.token);
+                this.context.setProp('user_id',data.user_id);
                 
             }else{
                 alert(data.message)

@@ -18,7 +18,7 @@ const MessageList = () => {
         })
         .then(res=>res.json())
         .then(res=>{
-            console.log(res);
+            // console.log(res);
             if(res['success']!==false)
             messageContext.setMessages(res)
             setTimeout(() => {
@@ -37,8 +37,8 @@ const MessageList = () => {
     if(!loading)
         loadMessageList();
     
-    console.log('context');
-    console.log(messageContext);
+    // console.log('context');
+    // console.log(messageContext);
     return (
         <div>
             {messageContext.messages!==undefined?messageContext.messages.map((message,index)=>{
