@@ -6,12 +6,11 @@ import Message from './Message';
 const MessageList = () => {
     const messageContext=useContext(MessageContext);
     const [loading,setLoading]= useState(false);
-    const [messages,setMessages]= useState([]);
     const userContext = useContext(UserContext);
     const loadMessageList=()=>{
         setLoading(true);
-        
-        fetch(api_messages+'/f'+messageContext.channel,{
+        // loading=true;
+        fetch(api_messages+'/'+messageContext.channel,{
             method:"get",
             headers:{
                 "Authorization":userContext.user.token
@@ -20,11 +19,18 @@ const MessageList = () => {
         .then(res=>res.json())
         .then(res=>{
             console.log(res);
-            if(res['success']!=false)
+            if(res['success']!==false)
             messageContext.setMessages(res)
+            setTimeout(() => {
+                setLoading(false);
+            }, 1000);
         })
         .catch(err=>{
             console.log(err);
+            
+            setTimeout(() => {
+                setLoading(false);
+            }, 1000);
         })
     }
 

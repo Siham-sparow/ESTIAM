@@ -3,6 +3,7 @@ import { api_channels } from '../../apiUrl';
 import UserContext from '../Provider/UserContext';
 import {Redirect} from 'react-router-dom';
 import MessageContext from '../Provider/MessageContext';
+import Item from './Item';
 //Contain the list of all channel
 //also used to create new channel
 const Channel = () => {
@@ -50,7 +51,7 @@ const Channel = () => {
             {channelName}
             <ul>
                 {channels.map((value,index)=>{
-                return <li key={index} value={value}>#{value}</li>
+                return <Item key={index} value={value}/>
                 })}    
             </ul>            
         </div>
