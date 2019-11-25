@@ -2,7 +2,7 @@ import React,{Component, } from 'react';
 import { api_login } from '../../apiUrl';
 import UserContext from "../Provider/UserContext";
 import {Redirect} from 'react-router-dom';
-import { Card, Button, Image, Input, Message } from 'semantic-ui-react';
+import { Card, Button, Input, Message } from 'semantic-ui-react';
 //contain the loginComponent
 
 class Login extends Component {
@@ -78,7 +78,7 @@ class Login extends Component {
                 </Message> 
                 :''}    
                 </div>                                                
-        <Card>
+        <Card fluid>
             <Card.Content>        
                 <Card.Header>Entrer dans votre espace personnel</Card.Header>
                     <div>                    
@@ -104,7 +104,7 @@ class Login extends Component {
                 </div>
                 <div>
                     <Button onClick={this.submit}
-                        color='blue'
+                        color='teal'
                         >Tchattons</Button>
                 </div>
       </Card.Content>      

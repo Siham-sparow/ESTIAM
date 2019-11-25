@@ -71,7 +71,7 @@ class SignUp extends Component {
                 </Message> 
                 :''}    
                 </div> 
-                <Card>
+                <Card fluid>
             <Card.Content>        
                 <Card.Header>Créer votre compte</Card.Header>
                 <div>

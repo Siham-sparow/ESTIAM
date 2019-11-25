@@ -4,6 +4,7 @@ import UserContext from '../Provider/UserContext';
 import {Redirect} from 'react-router-dom';
 import MessageContext from '../Provider/MessageContext';
 import Item from './Item';
+import { Input, List, Label } from 'semantic-ui-react';
 //Contain the list of all channel
 //also used to create new channel
 const Channel = () => {
@@ -45,15 +46,16 @@ const Channel = () => {
         loadChannelList();
     return (
         <div>
-            <h4>Channels</h4>
+<Label attached='top' color='blue'>Canal : {messageContext.channel} </Label>
+            
             <div>
-                <input value={channelName} onChange={handleChannelNameChange} placeholder='New channel'/>
+                <Input fluid value={channelName} onChange={handleChannelNameChange} placeholder='New channel'/>
             </div>
-            <ul>
+            <List>
                 {channels.map((value,index)=>{
                 return <Item key={index} value={value}/>
                 })}    
-            </ul>            
+            </List>            
         </div>
     );
 }

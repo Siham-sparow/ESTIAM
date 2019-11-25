@@ -1,12 +1,14 @@
 import React,{useContext} from 'react';
 import MessageContext from '../Provider/MessageContext';
+import { List } from 'semantic-ui-react';
 //contain one item (channel or user) for message
 // use to change the message list to be show
 const Item = ({value}) => {
     const messageContext= useContext(MessageContext);
     const style={
         active:{
-            color:'#fff',
+            color:'blue !important',
+            fontSize:27
         }
     }
     const changeChannel=()=>{
@@ -15,12 +17,13 @@ const Item = ({value}) => {
     }
     const isActive=(value)=>{
         console.log(value);
-        console.log(messageContext.channel);
+        console.log(messageContext);
+        console.log(value===messageContext.channel);
         return value===messageContext.channel
     }
     
     return (
-        <li style={isActive()?style.active:{}} value={value} onClick={changeChannel}>#{value}</li>
+        <List.Item icon='hashtag' style={isActive(value)?style.active:{}} value={value} onClick={changeChannel} content={`${value}`}/>
     );
 }
 
