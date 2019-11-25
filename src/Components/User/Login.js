@@ -2,7 +2,7 @@ import React,{Component, } from 'react';
 import { api_login } from '../../apiUrl';
 import UserContext from "../Provider/UserContext";
 import {Redirect} from 'react-router-dom';
-import { Card, Button, Image, Input } from 'semantic-ui-react';
+import { Card, Button, Image, Input, Message } from 'semantic-ui-react';
 //contain the loginComponent
 
 class Login extends Component {
@@ -13,7 +13,8 @@ class Login extends Component {
         super(props);
         this.state={
             username:'',
-            password:''
+            password:'',
+            errorMessage:'',
         };
         this.submit= this.submit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -32,6 +33,11 @@ class Login extends Component {
 
       submit(){
         //   console.log(this.context);
+        // clear error message.
+        const statusCopy = Object.assign({}, this.state);
+        statusCopy['errorMessage'] = '';    
+        this.setState(statusCopy);
+        //send request to connect
         fetch(api_login,{
             method:"post",
             body:JSON.stringify(this.state),
@@ -48,22 +54,35 @@ class Login extends Component {
                 this.context.setProp('user_id',data.user_id);
                 
             }else{
-                alert(data.message)
+                const statusCopy = Object.assign({}, this.state);
+                statusCopy['errorMessage'] = data.message;    
+                this.setState(statusCopy);
             }
-        }).catch(err=>console.log((err)));
+        }).catch(err=>{
+            const statusCopy = Object.assign({}, this.state);
+                statusCopy['errorMessage'] = JSON.stringify(err);    
+                this.setState(statusCopy);
+        });
       }
     render(){
         // let loggedIn=false;
         const loggedIn= this.context.user.token!==undefined;
         return (
             <div>                
-                 {loggedIn?<Redirect to="/messages"/>:''}                                                
+                 {loggedIn?<Redirect to="/messages"/>:''}
+                <div>
+                {this.state.errorMessage!==''?
+                <Message negative>
+                    <Message.Header>Une erreur s'est produite</Message.Header>
+                    <p>{ this.state.errorMessage }</p>
+                </Message> 
+                :''}    
+                </div>                                                
         <Card>
             <Card.Content>        
-                <Card.Header>Log into your account</Card.Header>
+                <Card.Header>Entrer dans votre espace personnel</Card.Header>
                     <div>                    
-                    <Input 
-                        
+                    <Input                         
                         icon='user'
                         iconPosition='left'
                         placeholder="Nom d'utilisateur"
@@ -85,8 +104,8 @@ class Login extends Component {
                 </div>
                 <div>
                     <Button onClick={this.submit}
-                        color='linkedin'
-                        >Chat now</Button>
+                        color='blue'
+                        >Tchattons</Button>
                 </div>
       </Card.Content>      
     </Card>
