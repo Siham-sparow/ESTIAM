@@ -12,6 +12,7 @@ const NewMessage = () => {
     const userContext=useContext(UserContext);
     const messageContext= useContext(MessageContext);
     const submit=()=>{
+        if(message!=='')
         fetch(api_messages+'/'+messageContext.channel,{
             method:'post',
             headers:{
@@ -42,11 +43,11 @@ const NewMessage = () => {
         <div>
             <Grid>
                 <Grid.Row>
-                    <Grid.Column width={14}>
+                    <Grid.Column width={13}>
                         <Input placeholder='Votre message ici!' fluid size='large' type='text' value={message} onChange={handleChange} />
                     </Grid.Column> 
-                    <Grid.Column width={1}>
-                        <Button color='teal' onClick={submit}>                
+                    <Grid.Column width={2}>
+                        <Button fluid style={{marginTop:'10px'}} color='teal' onClick={submit}>                
                             <Icon name='send'/>
                         </Button>
                     </Grid.Column>

@@ -10,7 +10,7 @@ const Content = () => {
             <Card  fluid>
                 <Card.Content>
                     <Label attached='top' color='teal'>Les messages</Label>
-                    <div style={{height:600,overflow:'auto',padding:12, width:'98%', margin:'auto'}}>
+                    <div style={{height:500,overflow:'auto',padding:12, width:'98%', margin:'auto'}}>
                         <MessageList />
                     </div>
                     <NewMessage />

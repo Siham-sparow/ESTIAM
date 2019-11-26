@@ -29,11 +29,14 @@ const MessageList = () => {
             
         })
     }
-    setTimeout(() => {
-        setLoading(false);
-    }, 1000);
-    if(!loading)
+    
+    if(!loading){
+        setTimeout(() => {
+            setLoading(false);
+        }, 1000);
         loadMessageList();
+    }
+       
     
     // console.log('context');
     // console.log(messageContext);

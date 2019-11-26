@@ -7,8 +7,10 @@ const Item = ({value}) => {
     const messageContext= useContext(MessageContext);
     const style={
         active:{
-            color:'blue !important',
-            fontSize:27
+            //color:'blue !important',
+            fontSize:'20px',
+            backgroundColor:'blue',
+            color:'white',
         }
     }
     const changeChannel=()=>{

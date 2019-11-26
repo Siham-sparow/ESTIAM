@@ -45,11 +45,12 @@ const Channel = () => {
     }
     if(!loading){
         setLoading(true);
-        loadChannelList();    
-    }
-    setTimeout(() => {
         loadChannelList();
-    }, 1000);
+        setTimeout(() => {
+            loadChannelList();
+        }, 1000);    
+    }
+    
     return (
         <div>
 <Label attached='top' color='blue'>Canal : {messageContext.channel} </Label>            
