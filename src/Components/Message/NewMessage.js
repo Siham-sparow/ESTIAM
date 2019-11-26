@@ -29,6 +29,8 @@ const NewMessage = () => {
             messageContext.setChannel(messageContext.channel);
             setMessage('');
             console.log(JSON.stringify(res));
+            
+            messageContext.setReloadChannel(true);
         })
         .catch(err=>{
             console.log('error')
@@ -41,7 +43,7 @@ const NewMessage = () => {
             <Grid>
                 <Grid.Row>
                     <Grid.Column width={14}>
-                        <Input fluid size='large' type='text' value={message} onChange={handleChange} />
+                        <Input placeholder='Votre message ici!' fluid size='large' type='text' value={message} onChange={handleChange} />
                     </Grid.Column> 
                     <Grid.Column width={1}>
                         <Button color='teal' onClick={submit}>                

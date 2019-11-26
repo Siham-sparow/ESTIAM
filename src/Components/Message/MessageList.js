@@ -21,19 +21,17 @@ const MessageList = () => {
             // console.log(res);
             if(res['success']!==false)
             messageContext.setMessages(res)
-            setTimeout(() => {
-                setLoading(false);
-            }, 1000);
+            
         })
         .catch(err=>{
             console.log(err);
             
-            setTimeout(() => {
-                setLoading(false);
-            }, 1000);
+            
         })
     }
-
+    setTimeout(() => {
+        setLoading(false);
+    }, 1000);
     if(!loading)
         loadMessageList();
     

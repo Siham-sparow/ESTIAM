@@ -16,9 +16,9 @@ const Item = ({value}) => {
         messageContext.setMessages([]);
     }
     const isActive=(value)=>{
-        console.log(value);
-        console.log(messageContext);
-        console.log(value===messageContext.channel);
+        // console.log(value);
+        // console.log(messageContext);
+        // console.log(value===messageContext.channel);
         return value===messageContext.channel
     }
     

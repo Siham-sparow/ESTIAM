@@ -20,7 +20,7 @@ const Channel = () => {
     }    
     
     const loadChannelList=()=>{
-        setLoading(true);
+        
         
         fetch(api_channels,{
             method:"get",
@@ -32,7 +32,8 @@ const Channel = () => {
         .then(res=>{
             // console.log(res);
             setChannels(res)
-            if(res[0]!==undefined)messageContext.setChannel(res[0]);
+            //messageContext.setReloadChannel(false);
+            if(res[0]!==undefined&&messageContext.channel==='')messageContext.setChannel(res[0]);
         })
         .catch(err=>{
             console.log(err);
@@ -42,14 +43,24 @@ const Channel = () => {
     if(userContext.user.token===undefined){
         return <Redirect to='/'/>
     }
-    if(!loading)
+    if(!loading){
+        setLoading(true);
+        loadChannelList();    
+    }
+    setTimeout(() => {
         loadChannelList();
+    }, 1000);
     return (
         <div>
-<Label attached='top' color='blue'>Canal : {messageContext.channel} </Label>
-            
+<Label attached='top' color='blue'>Canal : {messageContext.channel} </Label>            
             <div>
-                <Input fluid value={channelName} onChange={handleChannelNameChange} placeholder='New channel'/>
+                <Input 
+                    icon='hashtag' 
+                    iconPosition='left' 
+                    fluid 
+                    value={channelName} 
+                    onChange={handleChannelNameChange} 
+                    placeholder='Nouveau Canal'/>
             </div>
             <List>
                 {channels.map((value,index)=>{

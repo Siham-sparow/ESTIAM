@@ -13,12 +13,12 @@ const MessageContextProvider = ({children}) => {
     return (
         <MessageContext.Provider
             value={{
-                channel,
+                channel,                
                 setChannel,
                 messages,
                 addMessage,
                 setMessages,
-                clearMessages
+                clearMessages,
             }}>
             {children}
         </MessageContext.Provider>

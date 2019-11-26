@@ -5,16 +5,18 @@ import { Grid } from 'semantic-ui-react';
 const MessagePage = () => {
     return (
         <div>
-            <Grid stackable columns={2}>
-                <Grid.Row>
-                    <Grid.Column width={4}>
-                        <SideComponent />
-                    </Grid.Column>
-                    <Grid.Column width={12}>
-                        <Content />
-                    </Grid.Column>
-                </Grid.Row>
-            </Grid>
+            <div style={{width:'95%',margin:'auto'}}>
+                <Grid stackable columns={2}>
+                    <Grid.Row>
+                        <Grid.Column width={4}>
+                            <SideComponent />
+                        </Grid.Column>
+                        <Grid.Column width={12}>
+                            <Content />
+                        </Grid.Column>
+                    </Grid.Row>
+                </Grid>
+            </div>
         </div>
     );
 }
