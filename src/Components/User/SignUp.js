@@ -77,6 +77,7 @@ class SignUp extends Component {
                 <div>
                     <Input 
                         icon='user'
+                        fluid
                         iconPosition='left'
                         placeholder="Nom d'utilisateur"
                         value={this.state.username} 
@@ -87,6 +88,7 @@ class SignUp extends Component {
                 <div>
                     <Input 
                         icon='key'
+                        fluid
                         iconPosition='left'
                         placeholder="Mot de passe"
                         value={this.state.password} 

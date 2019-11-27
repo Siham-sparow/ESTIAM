@@ -9,7 +9,7 @@ class Login extends Component {
     static contextType = UserContext; 
     
 
-    
+
     constructor(props){ 
         super(props);
         this.state={
@@ -85,6 +85,7 @@ class Login extends Component {
                     <div>                    
                     <Input                         
                         icon='user'
+                        fluid
                         iconPosition='left'
                         placeholder="Nom d'utilisateur"
                         value={this.state.username} 
@@ -96,6 +97,7 @@ class Login extends Component {
                    
                     <Input 
                         icon='key'
+                        fluid
                         iconPosition='left'
                         placeholder="Mot de passe"
                         value={this.state.password} 
